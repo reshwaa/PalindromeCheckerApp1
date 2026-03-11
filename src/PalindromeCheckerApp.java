@@ -1,34 +1,34 @@
-import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Scanner;
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
+        // Define the input string [cite: 38]
+        String input = "level"; [cite: 39]
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a word:");
+        // Create a LinkedList to store characters [cite: 40, 41]
+        LinkedList<Character> list = new LinkedList<>();
 
-        String input = scanner.nextLine();
-
-        Deque<Character> deque = new LinkedList<>();
-
-        for(char c : input.toCharArray()){
-            deque.addLast(c);
+        // Add each character to the linked list [cite: 42, 43]
+        for (char c : input.toCharArray()) { [cite: 44]
+            list.add(c);
         }
 
-        boolean isPalindrome = true;
+        // Flag to track palindrome state [cite: 45]
+        boolean isPalindrome = true; [cite: 46]
 
-        while(deque.size() > 1){
-            if(deque.removeFirst() != deque.removeLast()){
+        // Compare until only one or zero elements remain [cite: 47, 48]
+        while (list.size() > 1) {
+            // Remove from both ends: removeFirst() and removeLast() [cite: 23, 24, 25]
+            char first = list.removeFirst();
+            char last = list.removeLast();
+
+            if (first != last) {
                 isPalindrome = false;
                 break;
             }
         }
 
-        if(isPalindrome){
-            System.out.println("Palindrome");
-        } else {
-            System.out.println("Not Palindrome");
-        }
+        // Print results as shown in output requirements
+        System.out.println("Input: " + input); [cite: 50]
+        System.out.println("Is Palindrome?: " + isPalindrome); [cite: 51]
     }
-
 }
